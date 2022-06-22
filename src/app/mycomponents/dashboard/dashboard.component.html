@@ -1,0 +1,41 @@
+<div class="container">
+    <div class="heading">
+    </div>
+    <div class="sort-ways">
+        <div class="item-name">
+            <h2>Books</h2>
+        </div>
+        <div class="no-books">
+            <h4 class="no-of-books">({{totalBooks}} items)</h4>
+        </div>
+        <input type="text" class="search" placeholder=" search products..." name="search">
+        <div class="sort-book">
+            <select class="sortby" placeholder="sortby"  >
+                <option selected value="Relevance">Sort By Relevance</option>
+                <option value="Ascending" >Price:Low to High</option>
+                <option value="Descending" >Price:High to Low</option>
+            </select>
+        </div>
+        <img routerLink="/cart" src="../../assets/cartlogo.png" alt="cart image loading" class="cart-image" >
+        <p class="cart-items">10</p>
+    </div>
+
+    <div class="book-container">
+        <div class="card card-container" *ngFor="let book of books">
+            <div class="book-image">
+                <img [src]="book.bookLogo" class=" card-img-top" alt="Book Image is loading" >
+                <h6 class="first-txt" *ngIf="book.bookQuantity==0" >Out of Stock</h6>
+            </div>
+
+            <div class="card-body">
+                <h5 class="card-title">{{book.bookName}}</h5>
+                <p class="card-text">{{book.bookAuthor}}</p>
+                <p class="card-text">{{book.bookPrice}}</p>
+                <div class="button-container" >
+                    <button type="button" class="button" >Add to Bag</button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
